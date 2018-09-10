@@ -6,6 +6,7 @@ var methodOverride = require('method-override');
 var Dictionary = require("oxford-dictionary");
   
 var config = {
+    //TODO: use process.env here
    app_id : "af50e942",
    app_key : "187501834b1d4b2f750af346417a57da",
    source_lang : "en"
@@ -14,27 +15,28 @@ var config = {
 
 dict = new Dictionary(config);
 
-var lookup = dict.find("awesome");
 
 var word = 'no';
 
-function logWord() {
+function logWord(dict_word) {
+    var lookup = dict.find(dict_word);
     lookup.then(function(res) {
 //    console.log(res);
 //    console.log(JSON.stringify(res.results[0].lexicalEntries));
+    word = 
     word = JSON.stringify(res.results[0].lexicalEntries);
-    console.log("word!");
+    console.log("word!!");
     console.log(word);
     app.post('/myaction', function(req, res) {
     res.send('You sent the name "' + req.body.name + word + '".');
-
 });
+        
   },
   function(err) {
       console.log(err);
   });
 };
-logWord();
+logWord("cool");
 
 console.log("word == ");
 console.log(word);
