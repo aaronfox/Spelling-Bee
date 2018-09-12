@@ -12,6 +12,8 @@ var config = {
    source_lang : "en"
 };
 
+var testWords = ["cat", "dog", "mouse", "hello"];
+
 
 dict = new Dictionary(config);
 
@@ -23,12 +25,22 @@ function logWord(dict_word) {
     lookup.then(function(res) {
 //    console.log(res);
 //    console.log(JSON.stringify(res.results[0].lexicalEntries));
-    word = 
     word = JSON.stringify(res.results[0].lexicalEntries);
-    console.log("word!!");
-    console.log(word);
+        JSONWord = JSON.parse(word);
+        console.log('JSONWord ==');
+        console.log(JSONWord);
+//    console.log("word!!");
+//    console.log(word);
     app.post('/myaction', function(req, res) {
-    res.send('You sent the name "' + req.body.name + word + '".');
+//    res.send('You sent the name "' + req.body.name + word + '".');
+//    console.log(testWords[Math.floor(Math.random()*testWords.length)]);
+    // lookupWord is a random word word from the word bank array
+    lookupWord = testWords[Math.floor(Math.random()*testWords.length)];
+    logWord(lookupWord);
+    res.render('pages/index', {
+        word: word
+    });
+
 });
         
   },
