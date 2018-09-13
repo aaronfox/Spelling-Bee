@@ -34,12 +34,13 @@ function logWord(dict_word) {
                 console.log(JSONWord[0].entries[0].senses[0].definitions);
         definition = JSONWord[0].entries[0].senses[0].definitions;
         pronunciation = JSONWord[0].pronunciations[0].audioFile;
-        wordObject = {definition: definition, 
+        wordObject = {word: dict_word,
+                      definition: definition, 
                     pronunciation: pronunciation};
         console.log(pronunciation);
         //    console.log("word!!");
         //    console.log(word);
-            app.post('/myaction', function(req, res) {
+            app.post('/nextWord', function(req, res) {
         //    res.send('You sent the name "' + req.body.name + word + '".');
         //    console.log(testWords[Math.floor(Math.random()*testWords.length)]);
             // lookupWord is a random word word from the word bank array
@@ -67,6 +68,9 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 /* end hmm */
+wordObject = {word: "test",
+            definition: "Definitions will go here!", 
+            pronunciation: "media/Recording.mp3"};
 
 app.get('/', function(req, res) {
 res.render('pages/index', {
@@ -74,7 +78,7 @@ res.render('pages/index', {
 });
     });
 
-//app.post('/myaction', function(req, res) {
+//app.post('/nextWord', function(req, res) {
 //res.send('You sent the name "' + req.body.name + '".');
 //
 //});
