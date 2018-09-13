@@ -2,3 +2,6 @@
     display:none;
 }
 
+#player_one_score, #player_two_score {
+    display: inline-block;
+}
