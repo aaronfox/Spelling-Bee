@@ -5,3 +5,9 @@
 #player_one_score, #player_two_score {
     display: inline-block;
 }
+
+body {
+    background-image: url("../media/carmen.jpg");
+    background-repeat: repeat;
+    color: white;
+}
