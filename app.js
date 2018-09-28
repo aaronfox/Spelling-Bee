@@ -78,6 +78,12 @@ res.render('pages/index', {
 });
     });
 
+    app.get('/nextWord', function(req, res) {
+        res.render('pages/index', {
+            wordObject: wordObject
+        });
+            });
+
 //app.post('/nextWord', function(req, res) {
 //res.send('You sent the name "' + req.body.name + '".');
 //
