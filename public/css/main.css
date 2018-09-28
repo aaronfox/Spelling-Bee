@@ -6,8 +6,24 @@
     display: inline-block;
 }
 
-/* body {
-    background-image: url("../media/carmen.jpg");
-    background-repeat: repeat;
-    color: white;
-} */
+html, body {
+    height:100%;
+  }
+  
+body {
+    /* background-image: url("../media/carmen.jpg");
+    background-repeat: repeat; */
+    background-color: #009fe9 !important;
+    color: white !important;
+    font-family: 'Open Sans', sans-serif !important;
+    display:flex;
+    align-items:center;
+} 
+
+h1 {
+    font-size: 600% !important;
+}
+
+.left-margin {
+    margin-left: 8px !important;
+ }
